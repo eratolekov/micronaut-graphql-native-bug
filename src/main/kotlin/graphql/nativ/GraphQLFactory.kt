@@ -1,4 +1,4 @@
-package com.example
+package graphql.nativ
 
 import graphql.GraphQL
 import graphql.schema.GraphQLSchema
@@ -16,7 +16,7 @@ class GraphQLFactory {
 
     @Bean
     @Singleton
-    fun graphQL(resourceResolver: ResourceResolver): GraphQL {
+    fun graphQL(resourceResolver: ResourceResolver, productsDataFetcher: ProductsDataFetcher): GraphQL {
         val schemaParser = SchemaParser()
 
         val typeRegistry = TypeDefinitionRegistry()
@@ -27,7 +27,7 @@ class GraphQLFactory {
             val runtimeWiring = RuntimeWiring.newRuntimeWiring()
                 .type(
                     TypeRuntimeWiring.newTypeWiring("Query")
-//                        .dataFetcher("bookById", graphQLDataFetchers.bookByIdDataFetcher())
+                        .dataFetcher("products", productsDataFetcher)
                 )
                 .build()
             val schemaGenerator = SchemaGenerator()

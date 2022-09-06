@@ -37,7 +37,7 @@ dependencies {
 
 
 application {
-    mainClass.set("graphql.native.bug.ApplicationKt")
+    mainClass.set("graphql.nativ.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
@@ -61,7 +61,7 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("graphql.native.bug.*")
+        annotations("graphql.nativ.*")
     }
 }
 

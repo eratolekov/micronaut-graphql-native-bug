@@ -1,4 +1,4 @@
-package graphql.native.bug
+package graphql.nativ
 
 import io.micronaut.runtime.Micronaut.*
 
